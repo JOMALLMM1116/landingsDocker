@@ -1,0 +1,16 @@
+# Certificados y datos de Certbot (se generan en el servidor)
+certbot/
+proxy/ssl/
+
+# Variables de entorno y secretos
+.env
+*.pem
+*.key
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/

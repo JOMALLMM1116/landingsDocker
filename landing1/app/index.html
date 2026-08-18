@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Manuel Maquín Leal — Desarrollo web e infraestructura</title>
+<meta name="description" content="Portafolio de José Manuel Maquín Leal. Proyectos de desarrollo web, contenedores Docker e infraestructura de servidores.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23091235'/><text x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%23F2A65A' text-anchor='middle'>j</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html { background: #091235; color: #E6EDF5; }
+html[data-tema="claro"] { background: #EAF0F8; color: #0F1B2D; }
+html[data-tema="calido"] { background: #F7EFE2; color: #201315; }
+</style>
+<link rel="stylesheet" href="estilos.css">
+<script>
+(function () {
+  var raiz = document.documentElement;
+  var guardado = null;
+  try { guardado = localStorage.getItem('jomadev-tema'); } catch (e) {}
+  if (guardado === 'oscuro' || guardado === 'claro' || guardado === 'calido') {
+    raiz.setAttribute('data-tema', guardado);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    raiz.setAttribute('data-tema', 'claro');
+  }
+})();
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-fila">
+    <span class="marca">joma<span class="marca-acento">dev</span></span>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="temas" role="group" aria-label="Elegir tema de color">
+      <button type="button" data-set-tema="oscuro" aria-pressed="true">
+        <span class="icono" aria-hidden="true">◐</span> Oscuro
+      </button>
+      <button type="button" data-set-tema="claro" aria-pressed="false">
+        <span class="icono" aria-hidden="true">○</span> Claro
+      </button>
+      <button type="button" data-set-tema="calido" aria-pressed="false">
+        <span class="icono" aria-hidden="true">◑</span> Cálido
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+
+  <section class="hero">
+    <div class="contenedor">
+      <p class="eyebrow">Universidad Mariano Gálvez · Carné 4090-22-3506</p>
+      <h1>José Manuel<br>Maquín Leal</h1>
+      <p class="hero-texto">
+        Estudiante de Ingeniería en Sistemas. Trabajo en desarrollo web full-stack,
+        pero donde más me he metido es en la parte de abajo: contenedores, servidores,
+        redes y bases de datos. Me gusta entender por qué algo falla, no solo que
+        vuelva a funcionar.
+      </p>
+
+      <section class="ruta" aria-labelledby="ruta-titulo">
+        <h2 id="ruta-titulo" class="ruta-titulo">Cómo te llegó esta página</h2>
+        <ol class="ruta-pasos">
+          <li><span class="ruta-etq">Tu navegador</span><span class="ruta-det">jomadev.online</span></li>
+          <li><span class="ruta-etq">nginx-proxy</span><span class="ruta-det">:443 · TLS de Let's Encrypt</span></li>
+          <li><span class="ruta-etq">landing1</span><span class="ruta-det">contenedor Docker · :80</span></li>
+        </ol>
+        <p class="ruta-nota">
+          Todo corre en un VPS de DigitalOcean. El proxy decide a qué contenedor
+          mandar cada petición según el dominio que pediste.
+        </p>
+      </section>
+    </div>
+  </section>
+
+  <section id="proyectos" class="seccion">
+    <div class="contenedor">
+      <h2>Proyectos</h2>
+      <p class="seccion-intro">Trabajos de laboratorio y prácticas del curso de Desarrollo Web.</p>
+
+      <div class="rejilla">
+
+        <article class="tarjeta">
+          <h3>Lab002 — Servidores web en paralelo</h3>
+          <p>nginx y Apache2 conviviendo en la misma máquina virtual Ubuntu, cada uno en su
+             puerto y compartiendo el mismo directorio raíz. Acceso remoto por ZeroTier,
+             que siguió funcionando incluso al cambiar de red.</p>
+          <ul class="etiquetas">
+            <li>Ubuntu Server</li><li>nginx</li><li>Apache2</li><li>VMware</li><li>ZeroTier</li>
+          </ul>
+          <p class="dato">nginx :80 · apache2 :8080</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Laboratorio Docker y bases de datos</h3>
+          <p>Cuatro contenedores sobre una red propia: Portainer para administrar,
+             PostgreSQL 17, pgAdmin y SQL Server Express. Conexión remota desde DBeaver
+             en Windows y volúmenes persistentes para no perder los datos.</p>
+          <ul class="etiquetas">
+            <li>Docker</li><li>PostgreSQL</li><li>SQL Server</li><li>Portainer</li><li>DBeaver</li>
+          </ul>
+          <p class="dato">db-lab-net · 172.18.0.0/16</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Práctica 2 — Stack contenerizado</h3>
+          <p>PostgreSQL, pgAdmin y nginx sirviendo una página propia desde un volumen
+             montado. La imagen resultante quedó publicada en Docker Hub como repositorio
+             público.</p>
+          <ul class="etiquetas">
+            <li>Docker</li><li>WSL</li><li>PostgreSQL</li><li>Docker Hub</li>
+          </ul>
+          <p class="dato">manuell1/mylogin:1.0</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Docker dentro de Docker</h3>
+          <p>Un contenedor corriendo su propio demonio Docker adentro, con un cliente
+             apuntando a él por la red interna. Sirve para entender el encadenamiento
+             de puertos y por qué la resolución por nombre necesita una red propia.</p>
+          <ul class="etiquetas">
+            <li>Docker</li><li>PowerShell</li><li>Redes</li>
+          </ul>
+          <p class="dato">Windows :8080 → dind :8080 → nginx :80</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Servicios Web — Sitio dockerizado</h3>
+          <p>Sitio HTML5 con estructura semántica servido por nginx con configuración
+             propia. El script de arranque valida la sintaxis antes de levantar el
+             servidor, así los errores aparecen legibles en los registros.</p>
+          <ul class="etiquetas">
+            <li>Docker</li><li>nginx</li><li>HTML5</li><li>Git</li>
+          </ul>
+          <p class="dato">manuell1/servicios-web:1.0</p>
+        </article>
+
+        <article class="tarjeta tarjeta-activa">
+          <p class="insignia">Estás aquí</p>
+          <h3>Despliegue en producción</h3>
+          <p>Dos sitios en contenedores separados detrás de un proxy inverso, cada uno con
+             su dominio y su certificado. Todo el stack se levanta con un solo archivo de
+             Docker Compose.</p>
+          <ul class="etiquetas">
+            <li>Docker Compose</li><li>nginx</li><li>Certbot</li><li>DigitalOcean</li>
+          </ul>
+          <p class="dato">jomadev.online · devquetzal.online</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnologias" class="seccion seccion-alterna">
+    <div class="contenedor">
+      <h2>Tecnologías</h2>
+      <p class="seccion-intro">Lo que uso con regularidad, agrupado por dónde encaja.</p>
+      <div class="grupos">
+        <div class="grupo">
+          <h3>Frontend</h3>
+          <p>HTML5, CSS3, Bootstrap, JavaScript</p>
+        </div>
+        <div class="grupo">
+          <h3>Infraestructura</h3>
+          <p>Docker, Docker Compose, nginx, Apache, Linux</p>
+        </div>
+        <div class="grupo">
+          <h3>Bases de datos</h3>
+          <p>PostgreSQL, SQL Server</p>
+        </div>
+        <div class="grupo">
+          <h3>Herramientas</h3>
+          <p>Git, GitHub, Docker Hub, DBeaver, VS Code</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="seccion">
+    <div class="contenedor">
+      <h2>Contacto</h2>
+      <p class="seccion-intro">Si quieres ver el código de algún proyecto o preguntarme algo, escríbeme.</p>
+      <ul class="enlaces">
+        <li><span class="enlace-etq">Correo</span>
+            <a href="mailto:lealmanuel1611@gmail.com">lealmanuel1611@gmail.com</a></li>
+        <li><span class="enlace-etq">GitHub</span>
+            <a href="https://github.com/JOMALLMM1116">JOMALLMM1116</a></li>
+        <li><span class="enlace-etq">Docker Hub</span>
+            <a href="https://hub.docker.com/u/manuell1">manuell1</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p>José Manuel Maquín Leal · Desarrollo Web 036 · Universidad Mariano Gálvez de Guatemala</p>
+    <p class="pie-tenue">Servido con nginx en un contenedor Docker</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement;
+  var botones = document.querySelectorAll('[data-set-tema]');
+
+  function marcar(tema) {
+    for (var i = 0; i < botones.length; i++) {
+      var activo = botones[i].getAttribute('data-set-tema') === tema;
+      botones[i].setAttribute('aria-pressed', activo ? 'true' : 'false');
+    }
+  }
+
+  marcar(raiz.getAttribute('data-tema'));
+
+  for (var j = 0; j < botones.length; j++) {
+    botones[j].addEventListener('click', function () {
+      var tema = this.getAttribute('data-set-tema');
+      raiz.setAttribute('data-tema', tema);
+      try { localStorage.setItem('jomadev-tema', tema); } catch (e) {}
+      marcar(tema);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

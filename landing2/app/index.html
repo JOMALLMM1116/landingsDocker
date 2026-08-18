@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quetzal Dev Studio — Desarrollo web a la medida, desde Guatemala</title>
+<meta name="description" content="Estudio guatemalteco de desarrollo web. Landing pages, sitios corporativos, tiendas en línea y aplicaciones a la medida.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2313361C'/><text x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23CC9A48' text-anchor='middle'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html { background: #161616; color: #DFDFDF; }
+html[data-tema="claro"] { background: #EDF3EA; color: #13361C; }
+html[data-tema="calido"] { background: #F5EBD2; color: #122620; }
+</style>
+<link rel="stylesheet" href="estilos.css">
+<script>
+(function () {
+  var raiz = document.documentElement;
+  var guardado = null;
+  try { guardado = localStorage.getItem('quetzal-tema'); } catch (e) {}
+  if (guardado === 'oscuro' || guardado === 'claro' || guardado === 'calido') {
+    raiz.setAttribute('data-tema', guardado);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    raiz.setAttribute('data-tema', 'claro');
+  }
+})();
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-fila">
+    <span class="marca">Quetzal <span class="marca-acento">Dev Studio</span></span>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="temas" role="group" aria-label="Elegir tema de color">
+      <button type="button" data-set-tema="oscuro" aria-pressed="true">
+        <span class="icono" aria-hidden="true">◐</span> Oscuro
+      </button>
+      <button type="button" data-set-tema="claro" aria-pressed="false">
+        <span class="icono" aria-hidden="true">○</span> Claro
+      </button>
+      <button type="button" data-set-tema="calido" aria-pressed="false">
+        <span class="icono" aria-hidden="true">◑</span> Cálido
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+
+  <section class="hero">
+    <div class="contenedor">
+      <p class="eyebrow">Guatemala</p>
+      <h1>Desarrollo web a la medida</h1>
+      <p class="hero-texto">
+        Hacemos sitios y aplicaciones para negocios que necesitan algo propio,
+        no una plantilla. Trabajamos con presupuestos claros: sabes cuánto cuesta
+        y qué incluye antes de empezar.
+      </p>
+      <a class="boton" href="#contacto">Pedir una cotización</a>
+    </div>
+  </section>
+
+  <section id="servicios" class="seccion">
+    <div class="contenedor">
+      <h2>Servicios</h2>
+      <p class="seccion-intro">Precios en dólares. El pago se divide en dos: la mitad al empezar y la mitad al entregar.</p>
+
+      <div class="rejilla">
+
+        <article class="servicio destacado">
+          <p class="insignia">Lo más pedido</p>
+          <h3>Landing page</h3>
+          <p class="precio">$250</p>
+          <ul class="incluye">
+            <li>Diseño responsivo</li>
+            <li>Formulario de contacto</li>
+            <li>Dominio configurado</li>
+            <li>Certificado SSL</li>
+          </ul>
+        </article>
+
+        <article class="servicio">
+          <h3>Sitio corporativo</h3>
+          <p class="precio">$600</p>
+          <ul class="incluye">
+            <li>Hasta 6 páginas</li>
+            <li>Panel para editar contenido</li>
+            <li>SEO básico</li>
+            <li>Hosting el primer mes</li>
+          </ul>
+        </article>
+
+        <article class="servicio">
+          <h3>Tienda en línea</h3>
+          <p class="precio">$1,200</p>
+          <ul class="incluye">
+            <li>Catálogo de productos</li>
+            <li>Carrito de compras</li>
+            <li>Pasarela de pago</li>
+            <li>Control de inventario</li>
+          </ul>
+        </article>
+
+        <article class="servicio">
+          <h3>Aplicación a la medida</h3>
+          <p class="precio">desde $2,000</p>
+          <ul class="incluye">
+            <li>Análisis de requerimientos</li>
+            <li>Base de datos</li>
+            <li>API REST</li>
+            <li>Panel administrativo</li>
+          </ul>
+        </article>
+
+        <article class="servicio">
+          <h3>Despliegue e infraestructura</h3>
+          <p class="precio">$150</p>
+          <ul class="incluye">
+            <li>Servidor configurado</li>
+            <li>Contenedores Docker</li>
+            <li>Certificado SSL</li>
+            <li>Respaldos automáticos</li>
+          </ul>
+        </article>
+
+        <article class="servicio">
+          <h3>Mantenimiento</h3>
+          <p class="precio">$45 <small>al mes</small></p>
+          <ul class="incluye">
+            <li>Actualizaciones de seguridad</li>
+            <li>Monitoreo del servidor</li>
+            <li>Respaldos</li>
+            <li>Soporte por correo</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="seccion seccion-alterna">
+    <div class="contenedor">
+      <h2>Cómo trabajamos</h2>
+      <p class="seccion-intro">Seis etapas, en este orden. Cada una termina con algo que puedes revisar.</p>
+
+      <ol class="proceso">
+        <li>
+          <h3>Consulta</h3>
+          <p>Nos cuentas qué necesitas. Preguntamos hasta entender el problema real, que casi nunca es el que se plantea al inicio.</p>
+        </li>
+        <li>
+          <h3>Propuesta</h3>
+          <p>Te enviamos alcance, precio y fecha de entrega por escrito. Si algo no cabe en el presupuesto, lo decimos ahí.</p>
+        </li>
+        <li>
+          <h3>Diseño</h3>
+          <p>Armamos la estructura y la parte visual. Lo revisas y ajustamos antes de escribir código.</p>
+        </li>
+        <li>
+          <h3>Desarrollo</h3>
+          <p>Construimos el sitio con avances que puedes ver en línea mientras trabajamos.</p>
+        </li>
+        <li>
+          <h3>Despliegue</h3>
+          <p>Publicamos en el servidor con dominio propio y certificado de seguridad.</p>
+        </li>
+        <li>
+          <h3>Soporte</h3>
+          <p>Un mes de correcciones incluido. Después puedes contratar mantenimiento si lo necesitas.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="equipo" class="seccion">
+    <div class="contenedor">
+      <h2>Quiénes somos</h2>
+      <p class="seccion-intro">Somos dos. Eso significa que hablas siempre con quien está haciendo el trabajo.</p>
+
+      <div class="equipo">
+        <article class="persona">
+          <div class="inicial" aria-hidden="true">IJ</div>
+          <h3>Irma Yaritza Katiuxca Jagan Xol</h3>
+          <p>Desarrolladora frontend y diseño de interfaz. Se encarga de que el sitio se vea bien y se entienda en cualquier pantalla.</p>
+        </article>
+
+        <article class="persona">
+          <div class="inicial" aria-hidden="true">JM</div>
+          <h3>José Manuel Maquín Leal</h3>
+          <p>Desarrollo backend e infraestructura. Bases de datos, servidores, contenedores y todo lo que hace que el sitio siga en pie.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="seccion seccion-alterna">
+    <div class="contenedor">
+      <h2>Cuéntanos tu proyecto</h2>
+      <p class="seccion-intro">Respondemos en menos de 24 horas hábiles.</p>
+
+      <form class="formulario" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" name="email" placeholder="nombre@empresa.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="servicio">Servicio que te interesa</label>
+          <select id="servicio" name="servicio">
+            <option>Landing page</option>
+            <option>Sitio corporativo</option>
+            <option>Tienda en línea</option>
+            <option>Aplicación a la medida</option>
+            <option>Despliegue e infraestructura</option>
+            <option>Mantenimiento</option>
+            <option>Todavía no lo sé</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Qué necesitas</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+          <p class="ayuda">Mientras más específico, más precisa la cotización.</p>
+        </div>
+
+        <button class="boton" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p>Quetzal Dev Studio · Guatemala · Irma Jagan Xol y José Manuel Maquín Leal</p>
+    <p class="pie-tenue">Sitio servido con nginx en un contenedor Docker</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement;
+  var botones = document.querySelectorAll('[data-set-tema]');
+
+  function marcar(tema) {
+    for (var i = 0; i < botones.length; i++) {
+      var activo = botones[i].getAttribute('data-set-tema') === tema;
+      botones[i].setAttribute('aria-pressed', activo ? 'true' : 'false');
+    }
+  }
+
+  marcar(raiz.getAttribute('data-tema'));
+
+  for (var j = 0; j < botones.length; j++) {
+    botones[j].addEventListener('click', function () {
+      var tema = this.getAttribute('data-set-tema');
+      raiz.setAttribute('data-tema', tema);
+      try { localStorage.setItem('quetzal-tema', tema); } catch (e) {}
+      marcar(tema);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
